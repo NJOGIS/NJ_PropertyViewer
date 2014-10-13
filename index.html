@@ -29,18 +29,18 @@
 		        <span class="icon-bar"></span>
 		        <span class="icon-bar"></span>
 		      </button>
-		      <a class="navbar-brand" href="#">... NEW JERSEY PROPERTY VALUES ...</a>
+		      <a class="navbar-brand hidden-xs" href="#">... NEW JERSEY PROPERTY VALUES ...</a>
 		     </div>
 		     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		      <ul class="nav navbar-nav navbar-right">
-		        <li class="nav-button"><a id="btnLegend" href="#">LEGEND</a></li>
+		        <li class="nav-button hidden-xs"><a id="btnLegend" href="#">LEGEND</a></li>
 		        <li class="nav-button"><a href="#" data-toggle="modal" data-target="#modalData">DATA</a></li>
 		        <li class="nav-button"><a href="#" data-toggle="modal" data-target="#modalAbout">ABOUT</a></li>
 		      </ul>
 		    </div>
 		</div>
 	</nav>
-	<div id="results" >
+	<div id="results" class="hidden-xs">
 		<div id="dataDescription">
 		    <h4 class="text-uppercase">PROPERTY VALUE</h4>
 		    <table class="table">
@@ -78,11 +78,11 @@
                 <h3 class="text-uppercase">about the project</h3>
                 <p class="text-uppercase">This project was inspired by <a href="http://bklynr.com/block-by-block-brooklyns-past-and-present/">BKLYNR's Block
                 	by Block</a> map and the  <a href="http://dev.citysdk.waag.org/buildings/">Waag Society's Building Age Map</a> for Amersterdam. The
-                	application is built in <a href="dojotoolkit.org" target="_blank">Dojo</a> and the
+                	application is built with <a href="dojotoolkit.org" target="_blank">Dojo</a>, <a href="https://developers.arcgis.com/javascript/" target="_blank">Esri's JS API</a> and the
                 	<a href="https://www.mapbox.com/developers/api/" target="_blank">Mapbox API</a> pulling data from 
                 	<a href="https://www.mapbox.com/" target="_blank">MapBox</a> and the <a href="https://njgin.state.nj.us" target="_blank">New Jersey 
                 	Office of GIS</a> map service.</p>
-                <p class="text-uppercase">The parcel layer is 3.4 million records and was cached from zoom level 7 to 15 in TileMill and hosted in MapBox.</p>
+                <p class="text-uppercase">The parcel layer is 3.8 million records and was cached from zoom level 7 to 15 in TileMill and hosted in MapBox.</p>
               </div>
             </div>
 	    </div>
@@ -134,7 +134,7 @@
 		  //attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, under <a href="http://creativecommons.org/licenses/by-sa/3.0">CC BY SA</a>.'
 		}).addTo(map);
 		stamenLayer.setOpacity(0.55);
-		var overlay = L.mapbox.tileLayer('XXXXXXXXXXXXXXX').addTo(map).setOpacity(0.75);
+		var overlay = L.mapbox.tileLayer('XXXXXXXXXXXXXX').addTo(map).setOpacity(0.75);
 		on(dom.byId('btnLegend'), 'click', function(){
 			if(domClass.contains('dataDescription', 'hidden')){
 				domClass.remove('dataDescription', 'hidden');
