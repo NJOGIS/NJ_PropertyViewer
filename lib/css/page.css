@@ -1,0 +1,96 @@
+@import url(http://fonts.googleapis.com/css?family=Share:400,700);
+
+body {
+	font-family: 'Share', cursive;
+	margin:0;
+	padding:0;
+	overflow: hidden;
+	}
+/* Page Classes */
+.nav-button{
+	font-size: 24px;
+}
+/* ID Styling */
+#map { 
+	position:absolute; 
+	top:0; 
+	bottom:0; 
+	width:100%; 
+	background:#000000
+	}
+#results{
+	position: absolute; 
+	width: 250px;
+	min-height: 210px;
+	right:25px;
+	top: 65px; 
+	color:#BFBFBF;
+	z-index:20;
+	border: 1px solid #B2A1A1;
+	border-radius: 5px;
+	background:#222;
+	opacity: 0.9;
+	padding: 1px 5px;
+}
+/* Mapbox Classes */
+.leaflet-top .leaflet-control {
+	margin-top: 65px;
+}
+.leaflet-top {
+	z-index:20 !important;
+}
+.footer {
+    background-color: #222;
+    bottom: 0;
+    height: 30px;
+    position: absolute;
+    width: 100%;
+    z-index: 1001;
+    color: #ffffff;
+}
+
+/* Bootstrap Classes */
+.navbar-brand{
+	font-size: 30px;
+	font-weight: 700;
+	line-height: 30px;
+	padding: 8px 15px;
+}
+/* Legend Classes */
+.legend{
+	width: 25px;
+}
+.legend1{
+	background: #313695
+}
+.legend2{
+	background: #4575B4
+}
+.legend3{
+	background: #74ADD1
+}
+.legend4{
+	background: #ABD9E9
+}
+.legend5{
+	background: #E0F3F8
+}
+.legend6{
+	background: #FEE090
+}
+.legend7{
+	background: #FDAE61
+}
+.legend8{
+	background: #F46D43
+}
+.legend9{
+	background: #D73027
+}
+.legend10{
+	background: #A50026
+}
+.no-top{
+	border-top: none !important;
+	line-height: 1.1 !important;
+}

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<title>... NEW JERSEY PROPERTY VALUES ...</title>
+<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+<link href='https://api.tiles.mapbox.com/mapbox.js/v2.0.1/mapbox.css' rel='stylesheet' />
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="lib/css/page.css">
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-55681502-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</head>
+<body>
+	<nav class="navbar navbar-inverse" role="navigation" style="z-index:99">
+		<div class="container-fluid">
+			<!-- Brand and toggle get grouped for better mobile display -->
+		    <div class="navbar-header">
+		      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+		        <span class="sr-only">Toggle navigation</span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		      </button>
+		      <a class="navbar-brand" href="#">... NEW JERSEY PROPERTY VALUES ...</a>
+		     </div>
+		     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		      <ul class="nav navbar-nav navbar-right">
+		        <li class="nav-button"><a id="btnLegend" href="#">LEGEND</a></li>
+		        <li class="nav-button"><a href="#" data-toggle="modal" data-target="#modalData">DATA</a></li>
+		        <li class="nav-button"><a href="#" data-toggle="modal" data-target="#modalAbout">ABOUT</a></li>
+		      </ul>
+		    </div>
+		</div>
+	</nav>
+	<div id="results" >
+		<div id="dataDescription">
+		    <h4 class="text-uppercase">PROPERTY VALUE</h4>
+		    <table class="table">
+		    	<tbody>
+		    	<tr><td class="legend legend1 no-top">&nbsp;</td><td class="no-top">$0 - $120,699</td></tr>
+		    	<tr><td class="legend legend2 no-top">&nbsp;</td><td class="no-top">$120,700 - $321,699</td></tr>
+		    	<tr><td class="legend legend3 no-top">&nbsp;</td><td class="no-top">$321,700 - $643,799</td></tr>
+		    	<tr><td class="legend legend4 no-top">&nbsp;</td><td class="no-top">$643,800 - $1,321,799</td></tr>
+		    	<tr><td class="legend legend5 no-top">&nbsp;</td><td class="no-top">$1,321,800 - $2,625,699</td></tr>
+		    	<tr><td class="legend legend6 no-top">&nbsp;</td><td class="no-top">$2,625,700 - $4,501,999</td></tr>
+		    	<tr><td class="legend legend7 no-top">&nbsp;</td><td class="no-top">$4,502,000 - $8,552,899</td></tr>
+		    	<tr><td class="legend legend8 no-top">&nbsp;</td><td class="no-top">$8,552,900 - $17,450,699</td></tr>
+		    	<tr><td class="legend legend9 no-top">&nbsp;</td><td class="no-top">$17,450,700 - $33,961,499</td></tr>
+		    	<tr><td class="legend legend10 no-top">&nbsp;</td><td class="no-top">$33,961,500+</td></tr>
+		    	</tbody>
+		    </table>
+		    <h6 class="text-uppercase">* Click on map for property information</h6>
+		</div>
+		<div id="idResults" class="hidden">
+			
+		</div>
+	</div>
+	<div class="footer">
+		<div class="container-fluid">
+			<h5 class="text-right text-uppercase">A Project by <a href="http://www.georamblings.com">Sean McGinnis</a>, 2014</h5>
+		</div>
+	</div>
+	<div id='map'></div>
+	
+	<div id="modalAbout" class="modal fade">
+	    <div class="modal-dialog modal-sm">
+	          <div class="modal-content">
+              <div class="modal-body">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h3 class="text-uppercase">about the project</h3>
+                <p class="text-uppercase">This project was inspired by <a href="http://bklynr.com/block-by-block-brooklyns-past-and-present/">BKLYNR's Block
+                	by Block</a> map and the  <a href="http://dev.citysdk.waag.org/buildings/">Waag Society's Building Age Map</a> for Amersterdam. The
+                	application is built in <a href="dojotoolkit.org" target="_blank">Dojo</a> and the
+                	<a href="https://www.mapbox.com/developers/api/" target="_blank">Mapbox API</a> pulling data from 
+                	<a href="https://www.mapbox.com/" target="_blank">MapBox</a> and the <a href="https://njgin.state.nj.us" target="_blank">New Jersey 
+                	Office of GIS</a> map service.</p>
+                <p class="text-uppercase">The parcel layer is 3.4 million records and was cached from zoom level 7 to 15 in TileMill and hosted in MapBox.</p>
+              </div>
+            </div>
+	    </div>
+	</div>
+	<div id="modalData" class="modal fade">
+        <div class="modal-dialog">
+              <div class="modal-content">
+              <div class="modal-body">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h3>DATA INFORMATION</h3>
+                <h4 class="text-uppercase">NJ Composite of Parcels Data with Joined MOD-IV Attributes</h4>
+                <p class="text-uppercase">This spatial layer is a composite of tax parcel polygons, edgematched across most municipal boundaries. It serves as one of the statewide
+                   framework GIS data sets for New Jersey. It is compatible with the New Jersey Department of the Treasury MOD-IV system currently used by
+                   Tax Assessors.The composite is created from component data sets from counties and the City of Newark. Stewardship and maintenance of the
+                   data will continue to be the purview of county and municipal governments, but the statewide composite will be maintained by the NJ Office
+                   of Information Technology (NJOIT), Office of Geographic Information Systems (OGIS).</p>
+                <p class="text-uppercase">Complete metadata is available at the <a href="https://njgin.state.nj.us/NJ_NJGINExplorer/details.jsp?favoritePage=false&goTo=details&docId={EC181B3D-4D15-11E1-A2E4-0003BA2C919E}&sName=PUBLIC_BROWSE&mode=&loggedIn=undefined" target ="_blank">New Jersey Geographic Information Network</a></p>
+              	<h4 class="text-uppercase">Stamen Design Toner Map</h4>
+              	<p class="text-uppercase">I have dug <a href="http://maps.stamen.com/" target="_blank">Stamen's map design</a> for years now, they are awesome
+              		and I use them any chace I get.</p>
+              </div>
+            </div>
+        </div>
+    </div>
+<script src='https://api.tiles.mapbox.com/mapbox.js/v2.0.1/mapbox.js'></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="http://js.arcgis.com/3.10/"></script>
+<script src="lib/js/identify.js"></script>
+<script>
+	require([
+		"dojo/on",
+		"dojo/dom", "dojo/dom-class",
+		"dojo/domReady!"
+	],function(
+		on,
+		dom, domClass
+	){
+		L.mapbox.accessToken = 'XXXXXXXXXXXXXXXXXXXXXXXXXX';
+		var map = L.map('map',{
+		    minZoom: 7,
+		    maxZoom: 15,
+			center: [40.15, -74.50],
+			zoom: 8,
+			showAttribution: false
+		});
+		
+		var stamenLayer = L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/toner/{z}/{x}/{y}.png', {
+		  //attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, under <a href="http://creativecommons.org/licenses/by-sa/3.0">CC BY SA</a>.'
+		}).addTo(map);
+		stamenLayer.setOpacity(0.55);
+		var overlay = L.mapbox.tileLayer('XXXXXXXXXXXXXXX').addTo(map).setOpacity(0.75);
+		on(dom.byId('btnLegend'), 'click', function(){
+			if(domClass.contains('dataDescription', 'hidden')){
+				domClass.remove('dataDescription', 'hidden');
+				domClass.add('idResults', 'hidden');
+			};
+		});
+		map.on('click', function(e){
+			identifyParcel(e.latlng.lat, e.latlng.lng, map.getBounds().getWest(), map.getBounds().getSouth(), map.getBounds().getEast(),map.getBounds().getNorth());
+		});
+	});
+
+</script>
+</body>
+</html>
